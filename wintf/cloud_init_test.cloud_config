@@ -1,0 +1,50 @@
+Content-Type: multipart/mixed; boundary="===============1598784645116016685=="
+MIME-Version: 1.0
+
+--===============1598784645116016685==
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="cloud-config"
+
+users:
+	- name: root
+	  lock_passwd: false
+	  plain_text_passwd: 'Password123'
+	  gecos: James B
+	  sudo: ALL=(ALL) NOPASSWD:ALL
+	  groups: users, admin
+	  
+#cloud-config
+version: v1
+packages_update: true
+packages_upgrade: true
+
+# if you're already installing other packages, you may
+# wish to manually install ansible to avoid multiple calls
+# to your package manager
+
+
+bootcmd:
+	- [echo "working" > hi.txt]
+	- [ notepad hi.txt]
+	
+write_files:
+	- path: c:\salt\conf\minion
+	content: |
+	master: salt-master.yetiops.lab
+	id: win2k19-vm-01.yetiops.lab
+	nodename: win2k19-vm-01
+	startup_states: highstate
+	
+	
+	
+	
+	
+	
+--===============1598784645116016685==
+Content-Type: text/x-cfninitdata; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="cfn-userdata"
+
