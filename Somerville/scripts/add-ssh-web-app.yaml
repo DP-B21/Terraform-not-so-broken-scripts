@@ -1,0 +1,10 @@
+users:
+  - default
+  - name: terraform
+    gecos: terraform
+    primary_group: hashicorp
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    ssh_import_id:
+    lock_passwd: false
+    ssh_authorized_keys: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC5Jd9FHYwtc0YnZpTsiBFOWY2N2F2COsr7895dANjWu89mRtW0MyWMnl1reAvF1KLuScPvPgc+nRrExrDoUBP5ngD0cfLVXa9zLWDPtT6HSzl3hxpnWSSdjffRom+3N8eBvarCFeYXkICiGO883U7p3ubRQmhZAW7kzIosKs++vhv1PJ1c7PQD1pt6srAgAII/LVd8a/iEgIxXonfmCgJzTLf6PwCjdsrGmVsPBqTB7E5vjECmVbSaDK7qjEor9DU0I18d8kdFQ94YatOaCRXl3m35WAemQH/0T6o6f6P5auEmKOj7jfACq/AQUErTaZPTa4DamhZvIKAxNTD8NnPoXmHIsmDNr/r4rF5VxlHalf8MZ+rK6HrlXneDEzLPMCclvNYZO+rs+Ofav1QJbLd0KijOZAz6L7FQGB2RqyKb2QP6hHnbF5r6+OrICLFgNEetjEeCQJxPsRC0qxGmw0E+WhZbx+gP9C9yN3pgyz7aOKlhpeqUS45npxszcgmrz1k= master@DESKTOP-DNS4UBK

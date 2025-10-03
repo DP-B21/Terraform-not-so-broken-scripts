@@ -1,0 +1,24 @@
+---
+
+- hosts: ceph-backup
+  remote_user: stack
+  gather_facts: no
+
+  tasks:
+
+  - name: Collect network routes and interfaces
+    shell: ip route show
+    register: physical_interfaces_cmd
+    changed_when: false
+    check_mode: false
+  - name: Show network interface details
+    debug: msg={{ physical_interfaces_cmd.stdout.split('\n') }}
+  - name: Test management network interface by pinging sv-ctrl-0
+    command: ping -c 1 10.19.2.1
+    ignore_errors: yes
+  - name: Test storage network interface by pinging sv-ctrl-0
+    command: ping -c 1 10.19.4.1
+    ignore_errors: yes
+  - name: Test storage management network interface by pinging sv-hdd-12-0
+    command: ping -c 1 10.19.5.16
+    ignore_errors: yes
